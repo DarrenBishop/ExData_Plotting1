@@ -34,9 +34,10 @@ load_data <- function() {
 
 df = load_data()
 
-par(pin=c(5,5), mar = c(2,4,2,2), cex.axis = 0.8, cex.lab = 0.8)
+png("plot2.png", width=480, height=480)
+
+par(pin=c(5,5), mar = c(3,5,1,1))
 
 with(df, plot(Global_active_power ~ DateTime, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 
-dev.copy(png, "plot2.png", width=480, height=480)
 dev.off()

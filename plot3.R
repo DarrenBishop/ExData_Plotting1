@@ -36,7 +36,9 @@ load_data <- function() {
 
 df = load_data()
 
-par(pin=c(5,5), mar = c(2,2,2,2), cex.axis = 0.8, cex.lab = 0.8)
+png("plot3.png", width=480, height=480)
+
+par(pin=c(5,5), mar = c(3,5,1,1))
 
 # Plot 3
 with(df, plot(Sub_metering_1 ~ DateTime, type = "l", xlab = "", ylab = "Energy sub metering"))
@@ -44,5 +46,4 @@ with(df, points(Sub_metering_2 ~ DateTime, type = "l", col = "red"))
 with(df, points(Sub_metering_3 ~ DateTime, type = "l", col = "blue"))
 legend("topright", pch = NA, lwd=1, lty=1, cex = 0.8, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-dev.copy(png, "plot3.png", width=480, height=480)
 dev.off()

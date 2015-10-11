@@ -36,9 +36,10 @@ load_data <- function() {
 
 df = load_data()
 
-par(pin = c(5,5), mar = c(4,4,2,2), cex.axis = 0.8, cex.lab = 0.8)
+png("plot1.png", width=480, height=480)
+
+par(pin = c(5,5), mar = c(3,5,3,1))
 
 hist(df$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", col ="red")
 
-dev.copy(png, "plot1.png", width=480, height=480)
 dev.off()

@@ -36,7 +36,9 @@ load_data <- function() {
 
 df = load_data()
 
-par(pin = c(5,5), cex.axis = 0.8, cex.lab = 0.8, mfrow = c(2, 2), mar = c(4,6,3,6), oma = c(1,0,2,0))
+png("plot4.png", width=480, height=480)
+
+par(pin = c(5,5), mfrow = c(2, 2), mar = c(4,5,1,1), oma = c(1,0,2,0))
 
 with(df, {
   plot(Global_active_power ~ DateTime, type = "l", xlab = "", ylab = "Global Active Power")
@@ -44,10 +46,8 @@ with(df, {
   plot(Sub_metering_1 ~ DateTime, type = "l", xlab = "", ylab = "Energy sub metering")
   points(Sub_metering_2 ~ DateTime, type = "l", col = "red")
   points(Sub_metering_3 ~ DateTime, type = "l", col = "blue")
-  legend("topright", pch = NA, lwd=1, lty=1, cex = 0.8, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright", pch = NA, lwd=1, lty=1, cex = 0.8, col = c("black", "red", "blue"), bty = "n", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
   plot(Global_reactive_power ~ DateTime, type = "l")
 })
 
-
-dev.copy(png, "plot4.png", width=480, height=480)
 dev.off()
